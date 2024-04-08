@@ -91,15 +91,16 @@ function generatedTimeEveryAfterEveryOneMin() {
   console.log("Hii functio is called")
   const rule = new schedule.RecurrenceRule();
   rule.second = new schedule.Range(0, 59);
-  const job = schedule.scheduleJob(rule, function () {
+  const job = schedule.scheduleJob("* * * * * *", function () {
     const currentTime = new Date();
     const timeToSend =
       currentTime.getSeconds() > 0
         ? 60 - currentTime.getSeconds()
         : currentTime.getSeconds();
     io.emit("onemin", timeToSend); // Emit the formatted time
-    if (timeToSend === 5) {
-      oneMinCheckResult();
+    if (timeToSend === 3) {
+      console.log("one min api hit no2w")
+      // oneMinCheckResult();
       oneMinColorWinning();
     }
   });
@@ -128,12 +129,12 @@ const generatedTimeEveryAfterEveryThreeMin = () => {
   let min = 2;
   const rule = new schedule.RecurrenceRule();
   rule.second = new schedule.Range(0, 59);
-  const job = schedule.scheduleJob(rule, function () {
+  const job = schedule.scheduleJob("* * * * * *", function () {
     const currentTime = new Date().getSeconds(); // Get the current time
     const timeToSend = currentTime > 0 ? 60 - currentTime : currentTime;
     io.emit("threemin", `${min}_${timeToSend}`);
     if (min === 0 && timeToSend === 25) {
-      oneMinCheckResult2min();
+      // oneMinCheckResult2min();
       oneMinColorWinning2min();
     }
     if (currentTime === 0) {
@@ -167,7 +168,7 @@ const generatedTimeEveryAfterEveryFiveMin = () => {
   let min = 4;
   const rule = new schedule.RecurrenceRule();
   rule.second = new schedule.Range(0, 59);
-  const job = schedule.scheduleJob(rule, function () {
+  const job = schedule.scheduleJob("* * * * * *", function () {
     const currentTime = new Date().getSeconds(); // Get the current time
     const timeToSend = currentTime > 0 ? 60 - currentTime : currentTime;
     io.emit("fivemin", `${min}_${timeToSend}`);
@@ -176,7 +177,7 @@ const generatedTimeEveryAfterEveryFiveMin = () => {
       timeToSend === 40 && // this is for sec
       min === 0 // this is for minut
     ) {
-      oneMinCheckResult3sec();
+      // oneMinCheckResult3sec();
       oneMinColorWinning3sec();
     }
 ///
