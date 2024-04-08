@@ -179,7 +179,7 @@ const generatedTimeEveryAfterEveryFiveMin = () => {
       oneMinCheckResult3sec();
       oneMinColorWinning3sec();
     }
-
+///
     if (currentTime === 0) {
       min--;
       if (min < 0) min = 4; // Reset min to 2 when it reaches 0
